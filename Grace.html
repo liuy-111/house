@@ -15,15 +15,15 @@
         
         :root {
             --primary-color: #2e7d32;
-            --secondary-color: #2d2d2d; /* 改为深灰色 */
+            --secondary-color: #2d2d2d;
             --accent-color: #d32f2f;
-            --text-color: #ffffff; /* 改为白色 */
+            --text-color: #ffffff;
             --light-text: #fff;
         }
         
         body {
-            background-color: #2d2d2d; /* 深灰色背景 */
-            color: var(--text-color); /* 白色字体 */
+            background-color: #2d2d2d;
+            color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -68,40 +68,11 @@
             width: auto;
         }
         
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 20px;
-        }
-        
-        nav ul li a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-        
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light-text);
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
         /* Girl Detail Page */
         .girl-detail {
             padding: 80px 0;
-            background-color: #2d2d2d; /* 深灰色背景 */
-            color: var(--text-color); /* 白色字体 */
+            background-color: #2d2d2d;
+            color: var(--text-color);
         }
         
         .girl-detail-container {
@@ -132,10 +103,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f8f9fa; /* 保持原来的浅色背景 */
+            background-color: #f8f9fa;
         }
         
-        /* 图片框保持原样 */
         .girl-slide img {
             max-width: 100%;
             max-height: 500px;
@@ -170,7 +140,7 @@
         .girl-detail-info {
             flex: 2;
             min-width: 300px;
-            color: var(--text-color); /* 白色字体 */
+            color: var(--text-color);
         }
         
         .girl-detail-name {
@@ -179,7 +149,7 @@
             margin-bottom: 20px;
         }
         
-        /* girl-stats 保持原样不变 */
+        /* girl-stats */
         .girl-stats {
             margin: 25px 0;
         }
@@ -236,16 +206,16 @@
         
         .pricing {
             margin: 30px 0;
-            color: var(--text-color); /* 白色字体 */
+            color: var(--text-color);
         }
         
         .price-option {
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            border-bottom: 1px solid #555; /* 深色边框 */
+            border-bottom: 1px solid #555;
             align-items: center;
-            color: var(--text-color); /* 白色字体 */
+            color: var(--text-color);
         }
         
         .price-option:last-child {
@@ -254,7 +224,7 @@
         
         .services {
             margin: 30px 0;
-            color: var(--text-color); /* 白色字体 */
+            color: var(--text-color);
         }
         
         .service-item {
@@ -262,7 +232,7 @@
             padding-left: 20px;
             position: relative;
             font-style: italic;
-            color: #ccc; /* 浅灰色 */
+            color: #ccc;
         }
         
         .service-item:before {
@@ -369,14 +339,15 @@
             position: fixed;
             bottom: 90px;
             right: 20px;
-            background-color: #2d2d2d; /* 深灰色背景 */
+            background-color: #2d2d2d;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             padding: 15px;
             display: none;
             z-index: 1000;
             width: 220px;
-            color: var(--text-color); /* 白色字体 */
+            color: var(--text-color);
+            border: 1px solid #444;
         }
         
         .call-options.active {
@@ -387,10 +358,10 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            border-bottom: 1px solid #555; /* 深色边框 */
+            border-bottom: 1px solid #555;
             cursor: pointer;
             transition: background-color 0.3s;
-            color: var(--text-color); /* 白色字体 */
+            color: var(--text-color);
         }
         
         .call-option:last-child {
@@ -398,7 +369,7 @@
         }
         
         .call-option:hover {
-            background-color: #3d3d3d; /* 深灰色悬停背景 */
+            background-color: #3d3d3d;
         }
         
         .call-option i {
@@ -408,29 +379,6 @@
         
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background-color: #000;
-                padding: 20px;
-            }
-            
-            nav ul.active {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
             .girl-slide img {
                 max-height: 300px;
             }
@@ -481,10 +429,6 @@
                 <img src="" alt="" class="logo-img">
                 <h1></h1>
             </div>
-            
-            <nav>
-                
-            </nav>
         </div>
     </header>
 
@@ -496,13 +440,13 @@
                     <div class="girl-slider">
                         <div class="girl-slides">
                             <div class="girl-slide">
-                                <img src="image1.jpg" alt="Anna">
+                                <img src="image1.jpg" alt="Grace">
                             </div>
                             <div class="girl-slide">
-                                <img src="image1.jpg" alt="Anna">
+                                <img src="image1.jpg" alt="Grace">
                             </div>
                             <div class="girl-slide">
-                                <img src="image1.jpg" alt="Anna">
+                                <img src="image1.jpg" alt="Grace">
                             </div>
                         </div>
                         <div class="girl-slider-nav">
@@ -515,7 +459,6 @@
                 <div class="girl-detail-info">
                     <h1 class="girl-detail-name">Grace</h1>
                     
-                    <!-- 优化后的统计信息 -->
                     <div class="girl-stats">
                         <div class="stats-grid">
                             <div class="stat">
@@ -583,7 +526,6 @@
                     <a href="index.html">Home</a>
                     <a href="news.html">News</a>
                 </div>
-                
             </div>
             <div class="copyright">
                 <p>&copy; 2025 </p>
@@ -600,148 +542,95 @@
     <div class="call-options" id="callOptions">
         <div class="call-option" onclick="window.location.href='tel:615-4973748'">
             <i class="fas fa-phone"></i>
-            <span>Call 1</span>
+            <span>Call 615-4973748</span>
         </div>
         <div class="call-option" onclick="window.location.href='tel:615-4849750'">
             <i class="fas fa-phone"></i>
-            <span>Call 2</span>
+            <span>Call 615-4849750</span>
         </div>
         <div class="call-option" onclick="window.location.href='sms:615-4973748'">
             <i class="fas fa-sms"></i>
-            <span>Send SMS 1</span>
+            <span>Text 615-4973748</span>
         </div>
         <div class="call-option" onclick="window.location.href='sms:615-4849750'">
             <i class="fas fa-sms"></i>
-            <span>Send SMS 2</span>
+            <span>Text 615-4849750</span>
         </div>
         <div class="call-option" id="copyNumber1">
             <i class="fas fa-copy"></i>
-            <span>Copy 1</span>
+            <span>Copy 615-4973748</span>
         </div>
         <div class="call-option" id="copyNumber2">
             <i class="fas fa-copy"></i>
-            <span>Copy 2</span>
+            <span>Copy 615-4849750</span>
         </div>
     </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Call Button Toggle
-    const callButton = document.getElementById('callButton');
-    const callOptions = document.getElementById('callOptions');
-    
-    if (callButton && callOptions) {
-        console.log('Call button and options found');
+    <script>
+        // 最简单的解决方案 - 直接绑定事件
+        console.log('Script started');
         
-        callButton.addEventListener('click', function(e) {
-            e.stopPropagation(); // 防止事件冒泡
-            console.log('Call button clicked');
-            callOptions.classList.toggle('active');
-        });
-
-        // Copy Phone Numbers
-        const copyNumber1 = document.getElementById('copyNumber1');
-        const copyNumber2 = document.getElementById('copyNumber2');
-        
-        if (copyNumber1) {
-            copyNumber1.addEventListener('click', function() {
-                navigator.clipboard.writeText('615-4973748').then(function() {
-                    alert('Phone number 615-4973748 copied to clipboard!');
-                    callOptions.classList.remove('active');
-                }).catch(function(err) {
-                    console.error('Copy failed:', err);
-                    // 备用复制方法
-                    const textArea = document.createElement('textarea');
-                    textArea.value = '615-4973748';
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                    alert('Phone number 615-4973748 copied to clipboard!');
-                    callOptions.classList.remove('active');
-                });
-            });
-        }
-
-        if (copyNumber2) {
-            copyNumber2.addEventListener('click', function() {
-                navigator.clipboard.writeText('615-4849750').then(function() {
-                    alert('Phone number 615-4849750 copied to clipboard!');
-                    callOptions.classList.remove('active');
-                }).catch(function(err) {
-                    console.error('Copy failed:', err);
-                    // 备用复制方法
-                    const textArea = document.createElement('textarea');
-                    textArea.value = '615-4849750';
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                    alert('Phone number 615-4849750 copied to clipboard!');
-                    callOptions.classList.remove('active');
-                });
-            });
-        }
-
-        // Girl Image Slider
-        let currentGirlSlide = 0;
-        const girlSlides = document.querySelector('.girl-slides');
-        const girlDots = document.querySelectorAll('.girl-slider-dot');
-        const totalGirlSlides = document.querySelectorAll('.girl-slide').length;
-
-        function showGirlSlide(n) {
-            currentGirlSlide = (n + totalGirlSlides) % totalGirlSlides;
-            if (girlSlides) {
-                girlSlides.style.transform = `translateX(-${currentGirlSlide * 100}%)`;
+        // 等待页面完全加载
+        window.onload = function() {
+            console.log('Page loaded');
+            
+            const callButton = document.getElementById('callButton');
+            const callOptions = document.getElementById('callOptions');
+            
+            console.log('Call button:', callButton);
+            console.log('Call options:', callOptions);
+            
+            if (callButton) {
+                callButton.onclick = function() {
+                    console.log('Call button clicked');
+                    callOptions.classList.toggle('active');
+                };
             }
             
-            girlDots.forEach(dot => dot.classList.remove('active'));
-            if (girlDots[currentGirlSlide]) {
-                girlDots[currentGirlSlide].classList.add('active');
+            // 复制功能
+            document.getElementById('copyNumber1').onclick = function() {
+                navigator.clipboard.writeText('615-4973748').then(function() {
+                    alert('Phone number copied!');
+                    callOptions.classList.remove('active');
+                });
+            };
+            
+            document.getElementById('copyNumber2').onclick = function() {
+                navigator.clipboard.writeText('615-4849750').then(function() {
+                    alert('Phone number copied!');
+                    callOptions.classList.remove('active');
+                });
+            };
+            
+            // 点击外部关闭
+            document.onclick = function(event) {
+                if (!callButton.contains(event.target) && !callOptions.contains(event.target)) {
+                    callOptions.classList.remove('active');
+                }
+            };
+            
+            // 图片轮播
+            let currentSlide = 0;
+            const slides = document.querySelector('.girl-slides');
+            const dots = document.querySelectorAll('.girl-slider-dot');
+            
+            function showSlide(n) {
+                currentSlide = n;
+                slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentSlide].classList.add('active');
             }
-        }
-
-        girlDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showGirlSlide(index);
+            
+            dots.forEach((dot, index) => {
+                dot.onclick = () => showSlide(index);
             });
-        });
-
-        // Auto slide
-        if (totalGirlSlides > 1) {
+            
+            // 自动轮播
             setInterval(() => {
-                showGirlSlide(currentGirlSlide + 1);
+                currentSlide = (currentSlide + 1) % dots.length;
+                showSlide(currentSlide);
             }, 5000);
-        }
-
-        // Close call options when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!callButton.contains(event.target) && !callOptions.contains(event.target)) {
-                callOptions.classList.remove('active');
-            }
-        });
-
-        // 防止call options内部的点击事件冒泡
-        callOptions.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-
-    } else {
-        console.error('Call button or options not found:', {
-            callButton: callButton,
-            callOptions: callOptions
-        });
-    }
-
-    // 添加一些调试信息
-    console.log('Script loaded successfully');
-    console.log('Call button element:', document.getElementById('callButton'));
-    console.log('Call options element:', document.getElementById('callOptions'));
-});
-</script>
+        };
+    </script>
 </body>
-
 </html>
-
-
-
