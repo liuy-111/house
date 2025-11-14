@@ -792,7 +792,7 @@
             </div>
         </div>
     <script>
-       // Enhanced Slider Functionality
+// Enhanced Slider Functionality
 class ImageSlider {
     constructor() {
         this.slides = document.querySelector('.slides');
@@ -864,7 +864,7 @@ class ImageSlider {
         this.stopAutoPlay();
         this.autoPlayInterval = setInterval(() => {
             this.nextSlide();
-        }, 4000); // 4秒切换一次
+        }, 4000);
     }
     
     stopAutoPlay() {
@@ -897,59 +897,110 @@ class ImageSlider {
     }
 }
 
-// 在页面加载完成后初始化轮播图
-document.addEventListener('DOMContentLoaded', () => {
+// 复制到剪贴板函数
+function copyToClipboard(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            showCopySuccess();
+        }).catch(err => {
+            useFallbackCopy(text);
+        });
+    } else {
+        useFallbackCopy(text);
+    }
+}
+
+function useFallbackCopy(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    showCopySuccess();
+}
+
+function showCopySuccess() {
+    const notification = document.createElement('div');
+    notification.textContent = '✓ Phone number copied!';
+    notification.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(46,125,50,0.9);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        z-index: 10000;
+        font-size: 16px;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        if (document.body.contains(notification)) {
+            document.body.removeChild(notification);
+        }
+    }, 2000);
+    
+    document.getElementById('callOptions').classList.remove('active');
+}
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化轮播图
     new ImageSlider();
-});
-
-        // Mobile Menu
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
-            
-            const icon = this.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+    
+    // Call Button Functionality - 修复这部分
+    const callButton = document.getElementById('callButton');
+    const callOptions = document.getElementById('callOptions');
+    
+    if (callButton && callOptions) {
+        callButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            callOptions.classList.toggle('active');
         });
 
-        // Close menu when clicking on links
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navMenu').classList.remove('active');
-                document.getElementById('menuToggle').querySelector('i').classList.remove('fa-times');
-                document.getElementById('menuToggle').querySelector('i').classList.add('fa-bars');
+        // 添加复制功能
+        const copyNumber1 = document.getElementById('copyNumber1');
+        const copyNumber2 = document.getElementById('copyNumber2');
+        
+        if (copyNumber1) {
+            copyNumber1.addEventListener('click', function() {
+                copyToClipboard('615-4973748');
             });
-        });
-
-        // Call Button Functionality
-        document.getElementById('callButton').addEventListener('click', function() {
-            document.getElementById('callOptions').classList.toggle('active');
-        });
-
-        document.getElementById('copyNumber').addEventListener('click', function() {
-            navigator.clipboard.writeText('9293738006').then(() => {
-                alert('Phone number copied to clipboard!');
-                document.getElementById('callOptions').classList.remove('active');
+        }
+        
+        if (copyNumber2) {
+            copyNumber2.addEventListener('click', function() {
+                copyToClipboard('615-4849750');
             });
-        });
+        }
 
         // Close call options when clicking outside
         document.addEventListener('click', function(event) {
-            const callButton = document.getElementById('callButton');
-            const callOptions = document.getElementById('callOptions');
-            
             if (!callButton.contains(event.target) && !callOptions.contains(event.target)) {
                 callOptions.classList.remove('active');
             }
         });
 
-        // Initialize slider when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            new ImageSlider();
+        // 防止call options内部的点击事件冒泡
+        callOptions.addEventListener('click', function(e) {
+            e.stopPropagation();
         });
-    </script>
+    } else {
+        console.error('Call button or options not found');
+    }
+});
+</script>
 </body>
 </html>
+
 
 
 
