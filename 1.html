@@ -22,11 +22,11 @@
         }
         
         body {
-            background-color: #f9f9f9;
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    background-color: #2d2d2d; /* 深灰色背景 */
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
         
         .container {
             max-width: 1600px; /* 进一步增加容器宽度 */
@@ -158,41 +158,44 @@
             box-shadow: 0 6px 20px rgba(46,125,50,0.6);
         }
         
-        /* About Section */
+         /* About Section */
         .about {
-            padding: 90px 0;
-            background-color: var(--secondary-color);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 40px;
-            color: var(--primary-color);
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: var(--primary-color);
-            margin: 20px auto 0;
-            border-radius: 2px;
-        }
-        
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .about-content p {
-            margin-bottom: 30px;
-            font-size: 20px;
-            line-height: 1.8;
-        }
+    padding: 60px 0; /* 从90px减小到60px */
+    background-color: #2d2d2d;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+.about-content p {
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #ffffff;
+}
+
+/* 如果需要，也可以调整标题颜色 */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px; /* 减小标题下边距 */
+    font-size: 40px;
+    color: #ffffff; /* 标题也改为白色 */
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: #ffffff; /* 下划线改为白色 */
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
         
         /* Enhanced Image Slider */
         .slider-section {
@@ -644,6 +647,16 @@
         </div>
     </section>
     <!-- Enhanced Image Slider -->
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">ABOUT US</h2>
+            <div class="about-content">
+                <p>We have nice ladies who will treat you like a king. Half hour "appetizer" One hour "main course".</p>
+                <p>We like to spend time with educated gentlemen who know how to treat someone as special as we are. You will be teased and pleased to be in our company... The fulfillment of your fantasy is our secret club.</p>
+            </div>
+        </div>
+    </section>
 <section class="slider-section">
     <div class="container">
         <div class="slider">
@@ -681,16 +694,7 @@
         </div>
     </div>
 </section>
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <h2 class="section-title">ABOUT US</h2>
-            <div class="about-content">
-                <p>We have nice ladies who will treat you like a king. Half hour "appetizer" One hour "main course".</p>
-                <p>We like to spend time with educated gentlemen who know how to treat someone as special as we are. You will be teased and pleased to be in our company... The fulfillment of your fantasy is our secret club.</p>
-            </div>
-        </div>
-    </section>
+    
     <!-- Girls Section -->
     <section class="girls">
         <div class="container">
@@ -944,6 +948,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </script>
 </body>
 </html>
+
 
 
 
