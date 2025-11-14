@@ -624,31 +624,64 @@
         </div>
     </div>
 
-    <script>
-        // Mobile Menu Toggle
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('navMenu').classList.toggle('active');
-        });
-
-        // Call Button Toggle
-        document.getElementById('callButton').addEventListener('click', function() {
-            document.getElementById('callOptions').classList.toggle('active');
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Call Button Toggle
+    const callButton = document.getElementById('callButton');
+    const callOptions = document.getElementById('callOptions');
+    
+    if (callButton && callOptions) {
+        console.log('Call button and options found');
+        
+        callButton.addEventListener('click', function(e) {
+            e.stopPropagation(); // 防止事件冒泡
+            console.log('Call button clicked');
+            callOptions.classList.toggle('active');
         });
 
         // Copy Phone Numbers
-        document.getElementById('copyNumber1').addEventListener('click', function() {
-            navigator.clipboard.writeText('615-4973748').then(function() {
-                alert('Phone number 615-4973748 copied to clipboard!');
-                document.getElementById('callOptions').classList.remove('active');
+        const copyNumber1 = document.getElementById('copyNumber1');
+        const copyNumber2 = document.getElementById('copyNumber2');
+        
+        if (copyNumber1) {
+            copyNumber1.addEventListener('click', function() {
+                navigator.clipboard.writeText('615-4973748').then(function() {
+                    alert('Phone number 615-4973748 copied to clipboard!');
+                    callOptions.classList.remove('active');
+                }).catch(function(err) {
+                    console.error('Copy failed:', err);
+                    // 备用复制方法
+                    const textArea = document.createElement('textarea');
+                    textArea.value = '615-4973748';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('Phone number 615-4973748 copied to clipboard!');
+                    callOptions.classList.remove('active');
+                });
             });
-        });
+        }
 
-        document.getElementById('copyNumber2').addEventListener('click', function() {
-            navigator.clipboard.writeText('615-4849750').then(function() {
-                alert('Phone number 615-4849750 copied to clipboard!');
-                document.getElementById('callOptions').classList.remove('active');
+        if (copyNumber2) {
+            copyNumber2.addEventListener('click', function() {
+                navigator.clipboard.writeText('615-4849750').then(function() {
+                    alert('Phone number 615-4849750 copied to clipboard!');
+                    callOptions.classList.remove('active');
+                }).catch(function(err) {
+                    console.error('Copy failed:', err);
+                    // 备用复制方法
+                    const textArea = document.createElement('textarea');
+                    textArea.value = '615-4849750';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('Phone number 615-4849750 copied to clipboard!');
+                    callOptions.classList.remove('active');
+                });
             });
-        });
+        }
 
         // Girl Image Slider
         let currentGirlSlide = 0;
@@ -658,10 +691,14 @@
 
         function showGirlSlide(n) {
             currentGirlSlide = (n + totalGirlSlides) % totalGirlSlides;
-            girlSlides.style.transform = `translateX(-${currentGirlSlide * 100}%)`;
+            if (girlSlides) {
+                girlSlides.style.transform = `translateX(-${currentGirlSlide * 100}%)`;
+            }
             
             girlDots.forEach(dot => dot.classList.remove('active'));
-            girlDots[currentGirlSlide].classList.add('active');
+            if (girlDots[currentGirlSlide]) {
+                girlDots[currentGirlSlide].classList.add('active');
+            }
         }
 
         girlDots.forEach((dot, index) => {
@@ -671,22 +708,40 @@
         });
 
         // Auto slide
-        setInterval(() => {
-            showGirlSlide(currentGirlSlide + 1);
-        }, 5000);
+        if (totalGirlSlides > 1) {
+            setInterval(() => {
+                showGirlSlide(currentGirlSlide + 1);
+            }, 5000);
+        }
 
         // Close call options when clicking outside
         document.addEventListener('click', function(event) {
-            const callButton = document.getElementById('callButton');
-            const callOptions = document.getElementById('callOptions');
-            
             if (!callButton.contains(event.target) && !callOptions.contains(event.target)) {
                 callOptions.classList.remove('active');
             }
         });
-    </script>
+
+        // 防止call options内部的点击事件冒泡
+        callOptions.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+    } else {
+        console.error('Call button or options not found:', {
+            callButton: callButton,
+            callOptions: callOptions
+        });
+    }
+
+    // 添加一些调试信息
+    console.log('Script loaded successfully');
+    console.log('Call button element:', document.getElementById('callButton'));
+    console.log('Call options element:', document.getElementById('callOptions'));
+});
+</script>
 </body>
 
 </html>
+
 
 
